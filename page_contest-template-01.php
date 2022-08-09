@@ -1,10 +1,10 @@
 <?php /* Template Name: sans-serif concept 01 */ ?>
 <?php
-function wpdocs_theme_name_scripts() {
+function wpdocs_theme_contest_01_scripts() {
     wp_enqueue_style( 'contest-template01-css', get_template_directory_uri().'/css/contest-01.css' );
     wp_enqueue_script( 'contest-template01-js', get_template_directory_uri().'/js/contest-01.js',array(), '1.0.0', true);
 }
-add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
+add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
 $fields = get_field_objects();
 
 $intro_main_text_color = $fields["intro-main-text-color"]["value"];
