@@ -1,3 +1,9 @@
+<?php 
+    function wpdocs_theme_name_scripts() {
+    wp_enqueue_style( 'front-page-css', get_template_directory_uri().'/css/front-page.css' );
+    // wp_enqueue_script( 'front-page-js', get_template_directory_uri().'/js/.js',array(), '1.0.0', true);
+}
+?>
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -7,7 +13,6 @@
 <div class="entry-content" itemprop="mainContentOfPage">
 <?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'full', array( 'itemprop' => 'image' ) ); } ?>
 <?php the_content(); ?>
-<span>hello?</span>
 <div class="entry-links"><?php wp_link_pages(); ?></div>
 </div>
 </article>
