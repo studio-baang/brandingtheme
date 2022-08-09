@@ -36,7 +36,6 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
             --intro-card-item-size: contain;
         }
     </style>
-    <?php var_dump($intro_card_image['url']);?>
     <main class="app for-design-circus">
         <section class="intro">
             <div class="intro_wrapper">
