@@ -55,18 +55,6 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
         </section>
         <section class="detail">
             <?php the_content(); ?>
-            <!-- <article class="example detail_article">
-                <h2 class="article_h2 example_h2" data-scroll-animate="bottom">example</h2>
-                <div class="example_img-container">
-                    <img class="example_img example_img__width50" src="./img/test_1.jpg" alt="" srcset="">
-                    <img class="example_img example_img__width75 example_img__float-right" src="./img/test_2.jpg" alt=""
-                        srcset="">
-                    <img class="example_img example_img__width50" src="./img/test_2.jpg" alt="" srcset="">
-                    <img class="example_img example_img__width50" src="./img/test_2.jpg" alt="" srcset="">
-                    <img class="example_img example_img__width100" src="./img/test_2.jpg" alt="" srcset="">
-                    <img class="example_img" src="./img/test_3.jpg" alt="" srcset="">
-                </div>
-            </article> -->
         </section>
     </main>
 <?php if ( comments_open() && !post_password_required() ) { comments_template( '', true ); } ?>
