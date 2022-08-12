@@ -43,7 +43,8 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
                     <h1 class="intro_main-tit"><strong><?php wp_title('')?></strong>
                         <br>logo design
                     </h1>
-                    <span class="intro_sub-tit">오렌지랩 로고 컨셉 디자인</span>
+                    <?php var_dump($fields)?>
+                    <span class="intro_sub-tit">로고 컨셉 디자인</span>
                 </div>
                 <ul class="intro_bottom">
                     <li class="intro_option intro_option__type">Symbol + Logotype</li>
