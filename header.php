@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> <?php baangbranding_schema_type(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
-<?php wp_head(); ?>
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3YRBY8WDL9"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -13,6 +10,9 @@
 
   gtag('config', 'G-3YRBY8WDL9');
 </script>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width" />
+<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
