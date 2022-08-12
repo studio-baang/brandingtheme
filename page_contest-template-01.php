@@ -7,6 +7,8 @@ function wpdocs_theme_contest_01_scripts() {
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
 $fields = get_field_objects();
 
+$title_kr = $fields["title-kr"]["value"];
+
 $intro_main_text_color = $fields["intro-main-text-color"]["value"];
 $intro_sub_text_color = $fields["intro-sub-text-color"]["value"];
 $intro_background_color = $fields["intro-background-color"]["value"];
@@ -43,8 +45,7 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
                     <h1 class="intro_main-tit"><strong><?php wp_title('')?></strong>
                         <br>logo design
                     </h1>
-                    <?php var_dump($fields)?>
-                    <span class="intro_sub-tit">로고 컨셉 디자인</span>
+                    <span class="intro_sub-tit"><?php echo $title_kr ?>로고 컨셉 디자인</span>
                 </div>
                 <ul class="intro_bottom">
                     <li class="intro_option intro_option__type">Symbol + Logotype</li>
