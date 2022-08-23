@@ -14,10 +14,6 @@ $intro_background_image = $fields["intro-background-image"]["value"];
 $intro_logo_form = $fields["logo-form"]["value"];
 $intro_use_scope = $fields["use-scope"]["value"];
 
-
-$example_title_color = $fields["example-title-color"]["value"];
-$example_background_color = $fields["example-background-color"]["value"];
-
 $intro_card_image = $fields["intro-card-logo-image"]["value"];
 $intro_card_color = $fields["intro-card-background-color"]["value"];
 $intro_card_size = $fields["intro-card-background-size"]["value"];
@@ -46,9 +42,6 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
             --intro-sub-text-color: <?php echo $intro_sub_text_color ?>;
             --intro-background-color: <?php echo $intro_background_color ?>;
             --intro-background-image: url(<?php echo $intro_background_image['url']?>);
-
-            --example-title-color: <?php echo $example_title_color ?>;
-            --example-background-color: <?php echo $example_background_color?>;
 
             --intro-card-item-img: url(<?php echo $intro_card_image['url']?>);
             --intro-card-item-color: <?php echo $intro_card_color ?>;
