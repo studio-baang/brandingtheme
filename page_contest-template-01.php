@@ -42,7 +42,7 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
             --intro-main-text-color: <?php echo $intro_main_text_color ?>;
             --intro-sub-text-color: <?php echo $intro_sub_text_color ?>;
             --intro-background-color: <?php echo $intro_background_color ?>;
-            --intro-background-image: none; 
+            --intro-background-image: url(<?php echo $intro_background_image['url']?>);
 
             --example-title-color: <?php echo $example_title_color ?>;
             --example-background-color: <?php echo $example_background_color?>;
