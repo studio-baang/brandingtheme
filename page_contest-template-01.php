@@ -1,13 +1,14 @@
 <?php /* Template Name: sans-serif concept 01 */ ?>
 <?php
+$fields = get_field_objects();
+
 function wpdocs_theme_contest_01_scripts() {
-    wp_enqueue_style( 'contest-template01-css', get_template_directory_uri().'/dev/css/contest-01.css' );
+    wp_enqueue_style( 'contest-template01-css', get_template_directory_uri().'/css/contest-01.css' );
     wp_enqueue_script( 'contest-template01-js', get_template_directory_uri().'/js/contest-01.js',array(), '1.0.0', true);
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
-$fields = get_field_objects();
 
-$title_kr = $fields["title-kr"]["value"];
+$sub_title = $fields["sub-company-name"]["value"];
 
 $intro_main_text_color = $fields["intro-main-text-color"]["value"];
 $intro_sub_text_color = $fields["intro-sub-text-color"]["value"];
@@ -36,6 +37,10 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
             --intro-card-item-img: url(<?php echo $intro_card_image['url']?>);
             --intro-card-item-color: <?php echo $intro_card_color ?>;
             --intro-card-item-size: contain;
+
+            --font-type: 'sans-serif';
+            --main-font-en:  'MonumentExtended';
+            --sub-font-kr: 'Noto Sans KR';
         }
     </style>
     <main class="app for-design-circus">
@@ -45,7 +50,7 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
                     <h1 class="intro_main-tit"><strong><?php wp_title('')?></strong>
                         <br>logo design
                     </h1>
-                    <span class="intro_sub-tit"><?php echo $title_kr ?>로고 컨셉 디자인</span>
+                    <span class="intro_sub-tit"><?php echo $sub_title ?> 로고 컨셉 디자인</span>
                 </div>
                 <ul class="intro_bottom">
                     <li class="intro_option intro_option__type">Symbol + Logotype</li>
