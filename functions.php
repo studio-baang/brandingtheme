@@ -30,15 +30,6 @@ acf_add_local_field_group(array(
 	'title' => 'Logo Contest Page01 - Card Option',
 	'fields' => array(
 		array(
-			'key' => 'field_sub_title',
-			'label' => 'title-sub-title',
-			'name' => 'title-sub-title',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'return_format' => 'string',
-		),
-		array(
 			'key' => 'field_62f112a84f22c',
 			'label' => 'intro card logo image',
 			'name' => 'intro-card-logo-image',
@@ -187,6 +178,15 @@ acf_add_local_field_group(array(
 	'key' => 'group_62f2178ac5aff',
 	'title' => 'Logo Contest page01 - Intro Option',
 	'fields' => array(
+		array(
+			'key' => 'sub_company_name',
+			'label' => 'sub-company-name',
+			'name' => 'sub-company-name',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'return_format' => 'string',
+		),
 		array(
 			'key' => 'field_62f217a79b06e',
 			'label' => 'intro-main-text-color',
