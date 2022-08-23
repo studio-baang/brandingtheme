@@ -30,7 +30,7 @@ function wpdocs_theme_contest_01_scripts() {
     if ($sub_font_kr = 'Noto Serif KR') {
         wp_enqueue_style('noto-serif-kr', 'https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');  
     }
-    wp_enqueue_style( 'contest-template01-css', get_template_directory_uri().'/dev/css/contest-01.css' );
+    wp_enqueue_style( 'contest-template01-css', get_template_directory_uri().'/css/contest-01.css' );
     wp_enqueue_script( 'contest-template01-js', get_template_directory_uri().'/js/contest-01.js',array(), '1.0.0', true);
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
