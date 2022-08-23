@@ -30,12 +30,12 @@ acf_add_local_field_group(array(
 	'title' => 'Logo Contest Page01 - Card Option',
 	'fields' => array(
 		array(
-			'key' => 'field_title_kr',
-			'label' => 'title-kr',
-			'name' => 'title-kr',
+			'key' => 'field_sub_title',
+			'label' => 'title-sub-title',
+			'name' => 'title-sub-title',
 			'type' => 'text',
 			'instructions' => '',
-			'required' => 1,
+			'required' => 0,
 			'return_format' => 'string',
 		),
 		array(
@@ -44,7 +44,7 @@ acf_add_local_field_group(array(
 			'name' => 'intro-card-logo-image',
 			'type' => 'image',
 			'instructions' => '인트로 카드 로고 이미지',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
@@ -68,7 +68,7 @@ acf_add_local_field_group(array(
 			'name' => 'intro-card-background-color',
 			'type' => 'color_picker',
 			'instructions' => '',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
