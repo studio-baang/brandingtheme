@@ -289,6 +289,7 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
+// Logo Contest Page01 - Card Option
 acf_add_local_field_group(array(
 	'key' => 'group_62f11225144fa',
 	'title' => 'Logo Contest Page01 - Card Option',
@@ -357,65 +358,6 @@ acf_add_local_field_group(array(
 			'layout' => 'vertical',
 			'return_format' => 'value',
 			'save_other_choice' => 0,
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'page_template',
-				'operator' => '==',
-				'value' => 'page_contest-template-01.php',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'side',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
-));
-
-acf_add_local_field_group(array(
-	'key' => 'group_62f21b42b7407',
-	'title' => 'Logo Contest Page01 - Example Option',
-	'fields' => array(
-		array(
-			'key' => 'field_62f21b540019f',
-			'label' => 'example-title-color',
-			'name' => 'example-title-color',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '#ffffff',
-			'enable_opacity' => 0,
-			'return_format' => 'string',
-		),
-		array(
-			'key' => 'field_62f21b6d001a0',
-			'label' => 'example-background-color',
-			'name' => 'example-background-color',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '#222222',
-			'enable_opacity' => 0,
-			'return_format' => 'string',
 		),
 	),
 	'location' => array(
