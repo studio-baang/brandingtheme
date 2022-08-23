@@ -22,10 +22,10 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
 
 function wpdocs_theme_contest_01_scripts() {
     if ($main_font_en = "MonumentExtended") {
-        wp_enqueue_style( 'monument-extended', get_home_url().'/fonts/MonumentExtended/monumentExtended.css' );
+        wp_enqueue_style( 'monument-extended', network_site_url().'/fonts/MonumentExtended/monumentExtended.css' );
     }
     if ($main_font_en = "PPEiko") {
-        wp_enqueue_style( 'PPEiko', get_home_url().'/fonts/PPEiko/PPEiko.css' );
+        wp_enqueue_style( 'PPEiko', network_site_url().'/fonts/PPEiko/PPEiko.css' );
     }
     if ($sub_font_kr = 'Noto Serif KR') {
         wp_enqueue_style('noto-serif-kr', 'https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');  
