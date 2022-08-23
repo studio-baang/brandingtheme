@@ -11,6 +11,9 @@ $intro_main_text_color = $fields["intro-main-text-color"]["value"];
 $intro_sub_text_color = $fields["intro-sub-text-color"]["value"];
 $intro_background_color = $fields["intro-background-color"]["value"];
 $intro_background_image = $fields["intro-background-image"]["value"];
+$intro_logo_form = $fields["logo-form"]["value"];
+$intro_use_scope = $fields["use-scope"]["value"];
+
 
 $example_title_color = $fields["example-title-color"]["value"];
 $example_background_color = $fields["example-background-color"]["value"];
@@ -66,8 +69,19 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
                     <span class="intro_sub-tit"><?php echo $sub_title ?> 로고 컨셉 디자인</span>
                 </div>
                 <ul class="intro_bottom">
-                    <li class="intro_option intro_option__type">Symbol + Logotype</li>
-                    <li class="intro_option intro_option__useto">For all used</li>
+                    <li class="intro_option intro_option__type"><?php echo $intro_logo_form ?></li>
+                    <li class="intro_option intro_option__useto">For
+                    <?php
+                    $is_intro_use_scope_first = false;
+                    foreach($intro_use_scope as $use_scope) {
+                        if(!$is_intro_use_scope_first) {
+                            $use_scope_comma = '';
+                            $is_intro_use_scope_first = true;
+                        } else {
+                            $use_scope_comma = ', ';
+                        };
+                        echo $use_scope_comma.$use_scope ;
+                    };?></li>
                 </ul>
             </div>
             <div class="intro_card"></div>
