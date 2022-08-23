@@ -2,11 +2,8 @@
 <?php
 $fields = get_field_objects();
 
-function wpdocs_theme_contest_01_scripts() {
-    wp_enqueue_style( 'contest-template01-css', get_template_directory_uri().'/css/contest-01.css' );
-    wp_enqueue_script( 'contest-template01-js', get_template_directory_uri().'/js/contest-01.js',array(), '1.0.0', true);
-}
-add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
+$main_font_en = $fields["main_font_en"]["value"];
+$sub_font_kr = $fields["sub_font_kr"]["value"];
 
 $sub_title = $fields["sub-company-name"]["value"];
 
@@ -21,6 +18,22 @@ $example_background_color = $fields["example-background-color"]["value"];
 $intro_card_image = $fields["intro-card-logo-image"]["value"];
 $intro_card_color = $fields["intro-card-background-color"]["value"];
 $intro_card_size = $fields["intro-card-background-size"]["value"];
+
+
+function wpdocs_theme_contest_01_scripts() {
+    if ($main_font_en = "MonumentExtended") {
+        wp_enqueue_style( 'monument-extended', '/fonts/MonumentExtended/monumentExtended.css' );
+    }
+    if ($main_font_en = "PPEiko") {
+        wp_enqueue_style( 'PPEiko', '/fonts/PPEiko/PPEiko.css' );
+    }
+    if ($sub_font_kr = 'Noto Serif KR') {
+        wp_enqueue_style('noto-serif-kr', 'https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');  
+    }
+    wp_enqueue_style( 'contest-template01-css', get_template_directory_uri().'/dev/css/contest-01.css' );
+    wp_enqueue_script( 'contest-template01-js', get_template_directory_uri().'/js/contest-01.js',array(), '1.0.0', true);
+}
+add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
 ?>
 <?php get_header(); ?>
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -38,9 +51,9 @@ $intro_card_size = $fields["intro-card-background-size"]["value"];
             --intro-card-item-color: <?php echo $intro_card_color ?>;
             --intro-card-item-size: contain;
 
-            --font-type: 'sans-serif';
-            --main-font-en:  'MonumentExtended';
-            --sub-font-kr: 'Noto Sans KR';
+            --font-style: 'sans-serif';
+            --main-font-en:  '<?php echo $main_font_en ?>';
+            --sub-font-kr: '<?php echo $sub_font_kr ?>';
         }
     </style>
     <main class="app for-design-circus">

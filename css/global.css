@@ -1,0 +1,2 @@
+html{width:100vw;height:calc(var(--vh, 1vh)*100)}body{font-size:14px;letter-spacing:-.025em;overflow-x:hidden;overflow-y:scroll}.footer{text-align:center;color:#cbcbcb;width:100%;padding:4em 0;background-color:#303030}.footer__logotype{height:5em;margin-bottom:2em}.footer__copyright{font-size:.8em;letter-spacing:.5em;opacity:.9}@media screen and (max-width:640px){.footer__logotype{height:4em}}
+/*# sourceMappingURL=/global.css.map */

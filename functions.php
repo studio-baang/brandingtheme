@@ -25,6 +25,243 @@ function my_acf_settings_url( $url ) {
 
 if( function_exists('acf_add_local_field_group') ):
 
+// Logo Contest page01 - Preference
+acf_add_local_field_group(array(
+	'key' => 'group_63049377de69e',
+	'title' => 'Logo Contest page01 - Preference',
+	'fields' => array(
+		array(
+			'key' => 'choice_font_style',
+			'label' => '폰트 스타일 선택',
+			'name' => 'font_style',
+			'type' => 'radio',
+			'instructions' => '폰트 스타일(고딕, 명조) 선택',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'sans-serif' => 'sans-serif',
+				'serif' => 'serif',
+			),
+			'allow_null' => 0,
+			'other_choice' => 0,
+			'default_value' => '',
+			'layout' => 'vertical',
+			'return_format' => 'label',
+			'save_other_choice' => 0,
+		),
+		array(
+			'key' => 'field_630494c8c7682',
+			'label' => '메인 영문 폰트',
+			'name' => 'main_font_en',
+			'type' => 'radio',
+			'instructions' => '메인 영문 폰트 선택',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'MonumentExtended' => 'MonumentExtended',
+				'PPEiko' => 'PPEiko',
+			),
+			'allow_null' => 0,
+			'other_choice' => 0,
+			'default_value' => '',
+			'layout' => 'vertical',
+			'return_format' => 'value',
+			'save_other_choice' => 0,
+		),
+		array(
+			'key' => 'field_63049526c7683',
+			'label' => '본문 한글 폰트',
+			'name' => 'sub_font_kr',
+			'type' => 'radio',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'Noto Sans KR' => 'Noto Sans KR',
+				'Noto Serif KR' => 'Noto Serif KR',
+			),
+			'allow_null' => 0,
+			'other_choice' => 0,
+			'default_value' => '',
+			'layout' => 'vertical',
+			'return_format' => 'label',
+			'save_other_choice' => 0,
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'page_contest-template-01.php',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
+// Logo Contest page01 - Intro Option
+acf_add_local_field_group(array(
+	'key' => 'group_62f2178ac5aff',
+	'title' => 'Logo Contest page01 - Intro Option',
+	'fields' => array(
+		array(
+			'key' => 'sub_company_name',
+			'label' => 'sub-company-name',
+			'name' => 'sub-company-name',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'return_format' => 'string',
+		),
+		array(
+			'key' => 'field_6304938bc7681',
+			'label' => '사용 범위',
+			'name' => 'use-scope',
+			'type' => 'checkbox',
+			'instructions' => '사용 범위 선택하기',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'everywhere' => 'Everywhere',
+				'print' => 'Print',
+				'web' => 'Web',
+				'product' => 'Product',
+				'signboard' => 'Signboard',
+				'screen' => 'Screen',
+			),
+			'allow_custom' => 0,
+			'default_value' => array(
+			),
+			'layout' => 'vertical',
+			'toggle' => 0,
+			'return_format' => 'label',
+			'save_custom' => 0,
+		),
+		array(
+			'key' => 'field_62f217a79b06e',
+			'label' => 'intro-main-text-color',
+			'name' => 'intro-main-text-color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'enable_opacity' => 0,
+			'return_format' => 'string',
+		),
+		array(
+			'key' => 'field_62f217cb9b06f',
+			'label' => 'intro-sub-text-color',
+			'name' => 'intro-sub-text-color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'enable_opacity' => 0,
+			'return_format' => 'string',
+		),
+		array(
+			'key' => 'field_62f217dc9b070',
+			'label' => 'intro-background-color',
+			'name' => 'intro-background-color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'enable_opacity' => 0,
+			'return_format' => 'string',
+		),
+		array(
+			'key' => 'field_62f217f09b071',
+			'label' => 'intro-background-image',
+			'name' => 'intro-background-image',
+			'type' => 'image',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'array',
+			'preview_size' => 'medium',
+			'library' => 'all',
+			'min_width' => 1920,
+			'min_height' => 1080,
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'page_contest-template-01.php',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
 acf_add_local_field_group(array(
 	'key' => 'group_62f11225144fa',
 	'title' => 'Logo Contest Page01 - Card Option',
@@ -174,115 +411,6 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
-acf_add_local_field_group(array(
-	'key' => 'group_62f2178ac5aff',
-	'title' => 'Logo Contest page01 - Intro Option',
-	'fields' => array(
-		array(
-			'key' => 'sub_company_name',
-			'label' => 'sub-company-name',
-			'name' => 'sub-company-name',
-			'type' => 'text',
-			'instructions' => '',
-			'required' => 0,
-			'return_format' => 'string',
-		),
-		array(
-			'key' => 'field_62f217a79b06e',
-			'label' => 'intro-main-text-color',
-			'name' => 'intro-main-text-color',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'enable_opacity' => 0,
-			'return_format' => 'string',
-		),
-		array(
-			'key' => 'field_62f217cb9b06f',
-			'label' => 'intro-sub-text-color',
-			'name' => 'intro-sub-text-color',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'enable_opacity' => 0,
-			'return_format' => 'string',
-		),
-		array(
-			'key' => 'field_62f217dc9b070',
-			'label' => 'intro-background-color',
-			'name' => 'intro-background-color',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'enable_opacity' => 0,
-			'return_format' => 'string',
-		),
-		array(
-			'key' => 'field_62f217f09b071',
-			'label' => 'intro-background-image',
-			'name' => 'intro-background-image',
-			'type' => 'image',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'return_format' => 'array',
-			'preview_size' => 'medium',
-			'library' => 'all',
-			'min_width' => 1920,
-			'min_height' => 1080,
-			'min_size' => '',
-			'max_width' => '',
-			'max_height' => '',
-			'max_size' => '',
-			'mime_types' => '',
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'page_template',
-				'operator' => '==',
-				'value' => 'page_contest-template-01.php',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'side',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
-));
-
 endif;		
 
 if ( !isset( $content_width ) ) { $content_width = 1920; }
@@ -306,7 +434,7 @@ add_user_meta( $user_id, 'baangbranding_notice_dismissed_7', 'true', true );
 add_action( 'wp_enqueue_scripts', 'baangbranding_enqueue' );
 function baangbranding_enqueue() {
     wp_enqueue_style( 'baangbranding-style', get_stylesheet_uri() );
-    wp_enqueue_style( 'monument-extended', get_template_directory_uri().'/fonts/monumentExtended.css' );
+	wp_enqueue_style( 'baangbranding-style-global', get_template_directory_uri().'/css/global.css' );
     wp_enqueue_script( 'jquery' );
 }
 
