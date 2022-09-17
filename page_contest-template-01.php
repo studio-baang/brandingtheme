@@ -59,7 +59,7 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_theme_contest_01_scripts' );
                     <h1 class="intro_main-tit"><strong><?php wp_title('')?></strong>
                         <br>logo design
                     </h1>
-                    <span class="intro_sub-tit"><?php echo $sub_title ?> 로고 컨셉 디자인</span>
+                    <span class="intro_sub-tit"><?php echo $sub_title ?> 로고 디자인</span>
                 </div>
                 <ul class="intro_bottom">
                     <li class="intro_option intro_option__type"><?php echo $intro_logo_form ?></li>
