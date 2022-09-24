@@ -1,9 +1,15 @@
 dev/
+prod/
+
+.cache/
 
 node_modules
 
-*.DS_Store
+.DS_Store
 
-*package.json
+*.json
 *yarn.lock
+
+*.log
+
 

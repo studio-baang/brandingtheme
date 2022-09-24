@@ -11,12 +11,13 @@
   gtag('config', 'G-3YRBY8WDL9');
 </script>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="wrapper" class="hfeed">
+<div id="app">
+<div data-barba="wrapper" id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <div id="branding">
 <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
@@ -30,8 +31,13 @@ if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1
 </div>
 <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
 <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
-<div id="search"><?php get_search_form(); ?></div>
 </nav>
 </header>
-<div id="container">
+<?php 
+// namespace
+$namespace = get_the_ID( );
+if ( is_front_page() || is_home() || is_front_page() && is_home() ) {$namespace = "home"; }
+if ( is_single() ) { $namespace = "post"; }
+?>
+<div id="container" data-barba="container" data-barba-namespace="<?php echo $namespace ?>">
 <main id="content" role="main">
