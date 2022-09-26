@@ -18,7 +18,7 @@
 <?php wp_body_open(); ?>
 <div id="app">
 <div data-barba="wrapper" id="wrapper" class="hfeed">
-<header id="header" role="banner">
+<header class="header header--banner" role="banner">
 <div id="branding">
 <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 <?php

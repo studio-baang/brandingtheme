@@ -3,7 +3,7 @@
 <?php get_template_part( 'entry' ); ?>
 <?php if ( comments_open() && !post_password_required() ) { comments_template( '', true ); } ?>
 <?php endwhile; endif; ?>
-<footer class="footer">
+<footer class="footer footer--content-nav">
 <?php get_template_part( 'nav', 'below-single' ); ?>
 </footer>
 <?php get_footer(); ?>

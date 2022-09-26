@@ -10,6 +10,7 @@ add_theme_support( 'html5', array( 'search-form', 'navigation-widgets' ) );
 add_theme_support( 'woocommerce' );
 global $content_width;
 
+// add custom field
 include_once(get_stylesheet_directory().'/inc/custom-field.php');
 
 // add custom block
@@ -34,20 +35,19 @@ if ( isset( $_GET['dismiss'] ) )
 add_user_meta( $user_id, 'baangbranding_notice_dismissed_7', 'true', true );
 }
 
-function baangbranding_enqueue() {
+function baang_default_enqueue() {
 	// remove defalut blocks style
- wp_dequeue_style( 'wp-block-library' );
- wp_dequeue_style( 'wp-block-library-theme' );
- wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+ 	wp_dequeue_style( 'wp-block-library' );
+ 	wp_dequeue_style( 'wp-block-library-theme' );
+ 	wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
 
 	wp_enqueue_style( 'baangbranding-style-wp-blocks', get_template_directory_uri().'/css/wp-blocks.css' );
-	wp_enqueue_style( 'monument-extended', network_site_url().'/fonts/MonumentExtended/monumentExtended.css' );
-	wp_enqueue_style( 'baangbranding-style-global', get_template_directory_uri().'/css/global.css' );
-	if(!is_admin( )) {
-		wp_enqueue_script( 'baangbranding-script-app', get_template_directory_uri().'/js/app.js',array(), '1.0.0', true );
-	}
+	wp_enqueue_style( 'monument-extended', content_url().'/fonts/MonumentExtended/monumentExtended.css' );
 }
-add_action( 'wp_enqueue_scripts', 'baangbranding_enqueue' );
+add_action( 'wp_enqueue_scripts', 'baang_default_enqueue' );
+
+// add enqueue global.css, app.js
+include_once(get_stylesheet_directory().'/inc/enqueue_script.php');
 
 add_filter( 'document_title_separator', 'baangbranding_document_title_separator' );
 function baangbranding_document_title_separator( $sep ) {
