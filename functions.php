@@ -47,7 +47,7 @@ function baang_default_enqueue() {
 add_action( 'wp_enqueue_scripts', 'baang_default_enqueue' );
 
 // add enqueue global.css, app.js
-include_once(get_stylesheet_directory().'/dev/enqueue_script.php');
+include_once(get_stylesheet_directory().'/inc/enqueue_script.php');
 
 add_filter( 'document_title_separator', 'baangbranding_document_title_separator' );
 function baangbranding_document_title_separator( $sep ) {
