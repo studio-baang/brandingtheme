@@ -5,6 +5,10 @@
 	overflow: hidden;
 }
 
+.has-text-align-center {
+	text-align: center;
+}
+
 .wp-block-cover,
 .wp-block-cover-image {
 	position: relative;
@@ -32,6 +36,14 @@
 	right: 0;
 	z-index: 1;
 	opacity: 0.5;
+}
+
+.aligncenter > img {
+	margin: 0 auto;
+}
+
+.alignright > img {
+	margin-left: auto;
 }
 
 .wp-block-cover-image
