@@ -86,3 +86,7 @@
 	z-index: 1;
 	color: #fff;
 }
+
+.wp-block-columns {
+	gap: 0;
+}
