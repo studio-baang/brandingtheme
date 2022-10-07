@@ -88,5 +88,5 @@
 }
 
 .wp-block-columns {
-	gap: 0;
+	gap: 0 !important;
 }
