@@ -1,6 +1,6 @@
 <?php
 
-function add_studio_baang_block() {
+function add_studio_baang_pattern() {
     remove_theme_support('core-block-patterns');
 
     $block_patterns = array(
@@ -24,6 +24,6 @@ function add_studio_baang_block() {
         );
 };
 
-add_action( 'init', 'add_studio_baang_block', 9  );
+add_action( 'init', 'add_studio_baang_pattern', 9  );
 
 ?>

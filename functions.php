@@ -14,7 +14,7 @@ global $content_width;
 include_once(get_stylesheet_directory().'/inc/custom-field.php');
 
 // add custom block
-include_once(get_stylesheet_directory().'/inc/baang-block.php');
+include_once(get_stylesheet_directory().'/inc/custom-pattern.php');
 
 
 if ( !isset( $content_width ) ) { $content_width = 1920; }
