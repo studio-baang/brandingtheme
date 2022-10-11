@@ -35,6 +35,13 @@ if ( isset( $_GET['dismiss'] ) )
 add_user_meta( $user_id, 'baangbranding_notice_dismissed_7', 'true', true );
 }
 
+add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
+
+function change_default_jquery( ){
+    wp_dequeue_script( 'jquery');
+    wp_deregister_script( 'jquery');   
+}
+
 function baang_default_enqueue() {
 	// remove defalut blocks style
  	wp_dequeue_style( 'wp-block-library' );
@@ -48,6 +55,16 @@ add_action( 'wp_enqueue_scripts', 'baang_default_enqueue' );
 
 // add enqueue global.css, app.js
 include_once(get_stylesheet_directory().'/inc/enqueue_script.php');
+
+// remove wp-container inline style
+
+add_filter( 'block_type_metadata', 'my_remove_experimental_layout', 10, 1 );
+function my_remove_experimental_layout( $metadata ) {
+    if ( !empty($metadata['supports']['__experimentalLayout'])) {
+        $metadata['supports']['__experimentalLayout'] = false;
+    }
+    return $metadata;
+}
 
 add_filter( 'document_title_separator', 'baangbranding_document_title_separator' );
 function baangbranding_document_title_separator( $sep ) {
