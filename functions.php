@@ -10,11 +10,14 @@ add_theme_support( 'html5', array( 'search-form', 'navigation-widgets' ) );
 add_theme_support( 'woocommerce' );
 global $content_width;
 
-// add custom field
+// add custom fields
 include_once(get_stylesheet_directory().'/inc/custom-field.php');
 
-// add custom block
+// add custom patterns
 include_once(get_stylesheet_directory().'/inc/custom-pattern.php');
+
+// add custom block
+include_once(get_stylesheet_directory().'/inc/custom-block.php');
 
 
 if ( !isset( $content_width ) ) { $content_width = 1920; }
@@ -35,26 +38,24 @@ if ( isset( $_GET['dismiss'] ) )
 add_user_meta( $user_id, 'baangbranding_notice_dismissed_7', 'true', true );
 }
 
-add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
 
 function change_default_jquery( ){
     wp_dequeue_script( 'jquery');
     wp_deregister_script( 'jquery');   
 }
+add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
 
-function baang_default_enqueue() {
+function baang_dequeue_blocks() {
 	// remove defalut blocks style
  	wp_dequeue_style( 'wp-block-library' );
  	wp_dequeue_style( 'wp-block-library-theme' );
  	wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
 
-	wp_enqueue_style( 'baangbranding-style-wp-blocks', get_template_directory_uri().'/css/wp-blocks.css' );
-	wp_enqueue_style( 'monument-extended', content_url().'/fonts/MonumentExtended/monumentExtended.css' );
 }
-add_action( 'wp_enqueue_scripts', 'baang_default_enqueue' );
+add_action( 'wp_enqueue_scripts', 'baang_dequeue_blocks' );
 
 // add enqueue global.css, app.js
-include_once(get_stylesheet_directory().'/inc/enqueue_script.php');
+include_once(get_stylesheet_directory().'/source/enqueue_script.php');
 
 // remove wp-container inline style
 
