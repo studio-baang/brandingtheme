@@ -1,6 +1,7 @@
 import { checkBrightness, HEXtoRGB, HEXtoCMYK } from "../modules/convert-color";
 
 const el = wp.element.createElement;
+const components = window.wp.components;
 
 function ChipTitle(props) {
 	const name = props.name;
@@ -27,8 +28,39 @@ function ChipDataList(props) {
 	);
 }
 
+export function EditColorChip(props) {
+	const {
+		attributes: { name, color },
+		setAttributes,
+	} = props;
+
+	const editName = (event) => {
+		setAttributes({ name: event.target.value });
+	};
+
+	const editColor = (val) => {
+		setAttributes({ color: val });
+	};
+
+	return el(
+		"div",
+		{ className: "edit-color-chip" },
+		el("input", {
+			type: "text",
+			value: name,
+			onChange: editName,
+			placeholder: "칩 이름을 기입하세요",
+		}),
+		el(components.ColorPicker, {
+			copyFormat: "hex",
+			color: color,
+			onChange: editColor,
+		})
+	);
+}
+
 export function ColorChip(props) {
-	const { name, color } = props;
+	const { name, color } = props.attributes;
 
 	const styled = {
 		backgroundColor: `${color}`,

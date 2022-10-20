@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"3JyBE":[function(require,module,exports) {
+})({"2atZF":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "96a645c43e56989e";
+module.bundle.HMR_BUNDLE_ID = "f87e2fbeeba5b703";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -531,11 +531,11 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"aM2fq":[function(require,module,exports) {
-var _colorChipComponents = require("./component/color-chip-components");
-(function(blocks, element, data, blockEditor) {
+},{}],"2V6wi":[function(require,module,exports) {
+var _colorChipComponents = require("../component/color-chip-components");
+(function(blocks, element, blockEditor) {
     const el = element.createElement, useBlockProps = blockEditor.useBlockProps, registerBlockType = blocks.registerBlockType, component = wp.components;
-    registerBlockType("studio-baang/color-chip", {
+    registerBlockType("studio-baang/color-gradient", {
         apiVersion: 2,
         title: "컬러 칩",
         category: "design",
@@ -575,7 +575,6 @@ var _colorChipComponents = require("./component/color-chip-components");
             }));
         },
         save: function(props) {
-            let content;
             const { name , color  } = props.attributes;
             return el((0, _colorChipComponents.ColorChip), {
                 name,
@@ -583,14 +582,15 @@ var _colorChipComponents = require("./component/color-chip-components");
             }, null);
         }
     });
-})(window.wp.blocks, window.wp.element, window.wp.data, window.wp.blockEditor);
+})(window.wp.blocks, window.wp.element, window.wp.blockEditor);
 
-},{"./component/color-chip-components":"3W2Dm"}],"3W2Dm":[function(require,module,exports) {
+},{"../component/color-chip-components":"3W2Dm"}],"3W2Dm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ColorChip", ()=>ColorChip);
+parcelHelpers.export(exports, "EdiColorChip", ()=>EdiColorChip);
 var _convertColor = require("../modules/convert-color");
-const el = wp.element.createElement;
+const el = wp.element.createElement, useBlockProps = wp.blockEditor.useBlockProps, component = wp.components;
 function ChipTitle(props) {
     const name = props.name;
     return name != null ? el("h2", {
@@ -618,7 +618,7 @@ function ChipDataList(props) {
     }, `${c}% ${m}% ${y}% ${k}%`));
 }
 function ColorChip(props) {
-    const { name , color  } = props;
+    const { name , color  } = props.attributes;
     const styled = {
         backgroundColor: `${color}`,
         color: !(0, _convertColor.checkBrightness)(color) ? "#ffffff" : "#000000"
@@ -632,6 +632,30 @@ function ColorChip(props) {
         color
     }));
 }
+function EdiColorChip(props) {
+    const blockProps = useBlockProps();
+    const { attributes: { name , color  } , setAttributes ,  } = props;
+    const editName = (event)=>{
+        setAttributes({
+            name: event.target.value
+        });
+    };
+    const editColor = (val)=>{
+        setAttributes({
+            color: val
+        });
+    };
+    return el("div", blockProps, el("input", {
+        type: "text",
+        value: name,
+        onChange: editName,
+        placeholder: "칩 이름을 기입하세요"
+    }), el(component.ColorPicker, {
+        copyFormat: "hex",
+        color: color,
+        onChange: editColor
+    }));
+}
 
 },{"../modules/convert-color":"76xiC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"76xiC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -639,7 +663,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "checkBrightness", ()=>checkBrightness);
 parcelHelpers.export(exports, "HEXtoRGB", ()=>HEXtoRGB);
 parcelHelpers.export(exports, "HEXtoCMYK", ()=>HEXtoCMYK);
-parcelHelpers.export(exports, "shiftgrayscale", ()=>shiftgrayscale);
+parcelHelpers.export(exports, "createGradientArray", ()=>createGradientArray);
 function sliceHEX(colorHEX) {
     return {
         r: colorHEX.slice(1, 3),
@@ -668,11 +692,15 @@ function HEXtoRGB(colorHEX) {
         b: parseInt(b, 16)
     };
 }
+function RGBtoHEX(RGB) {
+    const { r , g , b  } = RGB;
+    return "#" + r.toString(16) + g.toString(16) + b.toString(16);
+}
 function HEXtoCMYK(colorHEX) {
     const { r , g , b  } = HEXtoRGBrange(colorHEX);
-    const calcPercent = (value)=>Math.round(value * 100);
+    const calcPercent = (value1)=>Math.round(value1 * 100);
     const black = 1 - Math.max(r, g, b);
-    const calcCMY = (value)=>(1 - value - black) / (1 - black) || 0;
+    const calcCMY = (value1)=>(1 - value1 - black) / (1 - black) || 0;
     return {
         c: calcPercent(calcCMY(r)),
         m: calcPercent(calcCMY(g)),
@@ -680,26 +708,35 @@ function HEXtoCMYK(colorHEX) {
         k: calcPercent(black)
     };
 }
-function shiftgrayscale(levelValue, first, last) {
-    const grayscale = [];
-    const firstColor = first ?? "ff";
-    const lastColor = last ?? "00";
-    const firstLevel = parseInt(firstColor, 16);
-    const lastLevel = parseInt(lastColor, 16);
+function createGradientArray(object) {
+    const { levelValue , firstColor , lastColor  } = props;
+    const colorGroup = [];
+    const firstColorSliceHex = sliceHEX(firstColor);
+    const lastColorSlideHex = sliceHEX(lastColor);
     const pushHexCode = (hex)=>{
-        grayscale.push(hex + hex + hex);
+        colorGroup.push(RGBtoHEX(hex));
+    };
+    const calcGradient = (index)=>{
+        const first = firstColorSliceHex;
+        const last = lastColorSlideHex;
+        const calcValue = (firstValue, lastValue)=>Math.round(firstValue + index / level * (lastValue - firstValue));
+        return {
+            r: calcValue(first.r, last.r),
+            g: calcValue(first.g, last.g),
+            b: calcValue(first.b, last.b)
+        };
     };
     pushHexCode(firstColor);
     if (levelValue >= 0) {
-        const level = Math.max(Math.min(levelValue + 1, 10), 1);
-        for(let i = 1; i < level; i++){
-            const value = Math.round(firstLevel + i / level * (lastLevel - firstLevel));
+        const level1 = Math.max(Math.min(levelValue + 1, 10), 1);
+        for(let i = 1; i < level1; i++){
             const convertHex = value.toString(16);
+            calcGradient(i);
             pushHexCode(convertHex);
         }
         pushHexCode(lastColor);
     }
-    return grayscale;
+    return colorGroup;
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
@@ -732,6 +769,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["3JyBE","aM2fq"], "aM2fq", "parcelRequire8ee3")
+},{}]},["2atZF","2V6wi"], "2V6wi", "parcelRequire8ee3")
 
-//# sourceMappingURL=color-chip.js.map
+//# sourceMappingURL=color-grayscale.js.map

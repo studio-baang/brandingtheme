@@ -15,19 +15,31 @@ function HEXtoRGBrange(colorHEX) {
 	};
 }
 
-function checkBrightness(colorHEX) {
-	const { r, g, b } = HEXtoRGBrange(colorHEX);
-	const average = (r + g + b) / 3;
-	return average >= 0.5 ? true : false;
-}
-
 function HEXtoRGB(colorHEX) {
 	const { r, g, b } = sliceHEX(colorHEX);
+
 	return {
 		r: parseInt(r, 16),
 		g: parseInt(g, 16),
 		b: parseInt(b, 16),
 	};
+}
+
+function checkBrightness(colorHEX) {
+	const { r, g, b } = HEXtoRGBrange(colorHEX);
+	const average = (r + g + b) / 3;
+	return average >= 0.6 ? true : false;
+}
+
+function RGBtoHEX(RGB) {
+	const { r, g, b } = RGB;
+
+	const getHexVaule = (number) => {
+		const numerHex = number.toString(16);
+		return numerHex.length < 2 ? "0" + numerHex : numerHex;
+	};
+
+	return "#" + getHexVaule(r) + getHexVaule(g) + getHexVaule(b);
 }
 
 function HEXtoCMYK(colorHEX) {
@@ -46,35 +58,38 @@ function HEXtoCMYK(colorHEX) {
 	};
 }
 
-function shiftgrayscale(levelValue, first, last) {
-	const grayscale = [];
+function createGradientArray(props) {
+	const { level, startColor, endColor } = props;
+	const colorGroup = [];
 
-	const firstColor = first ?? "ff";
-	const lastColor = last ?? "00";
+	const startColorSliceRGB = HEXtoRGB(startColor);
+	const endColorSlideRGB = HEXtoRGB(endColor);
 
-	const firstLevel = parseInt(firstColor, 16);
-	const lastLevel = parseInt(lastColor, 16);
+	const calcGradientRGB = (index) => {
+		const first = startColorSliceRGB;
+		const last = endColorSlideRGB;
 
-	const pushHexCode = (hex) => {
-		grayscale.push(hex + hex + hex);
+		const calcValue = (firstValue, lastValue) =>
+			Math.round(firstValue + (index / level) * (lastValue - firstValue));
+
+		return {
+			r: calcValue(first.r, last.r),
+			g: calcValue(first.g, last.g),
+			b: calcValue(first.b, last.b),
+		};
 	};
 
-	pushHexCode(firstColor);
+	colorGroup.push(startColor);
 
-	if (levelValue >= 0) {
-		const level = Math.max(Math.min(levelValue + 1, 10), 1);
-		for (let i = 1; i < level; i++) {
-			const value = Math.round(
-				firstLevel + (i / level) * (lastLevel - firstLevel)
-			);
-			const convertHex = value.toString(16);
-
-			pushHexCode(convertHex);
+	if (level > 0) {
+		const limitLevel = Math.max(Math.min(level, 10), 1);
+		for (let i = 1; i < limitLevel; i++) {
+			colorGroup.push(RGBtoHEX(calcGradientRGB(i)));
 		}
-		pushHexCode(lastColor);
+		colorGroup.push(endColor);
 	}
 
-	return grayscale;
+	return colorGroup;
 }
 
-export { checkBrightness, HEXtoRGB, HEXtoCMYK, shiftgrayscale };
+export { checkBrightness, HEXtoRGB, HEXtoCMYK, createGradientArray };

@@ -8,7 +8,6 @@ function add_studio_baang_pattern() {
 		'post-composition-float-both',
         'gallery',
         'variation',
-        'color-list'
 	);
 
 	foreach ( $block_patterns as $block_pattern ) {

@@ -16,8 +16,8 @@ class App {
 
 		this.browserArray = getBrowerInfo();
 
-		// this.smoother;
-		// this.setBarba();
+		this.smoother;
+		this.setBarba();
 		this.onResize();
 
 		window.addEventListener(
@@ -54,6 +54,7 @@ class App {
 				smoothTouch: 0.1,
 			});
 			ScrollTrigger.normalizeScroll(true);
+			this.smoother.scrollTrigger.refresh();
 		});
 		barba.init({
 			debug: true,
